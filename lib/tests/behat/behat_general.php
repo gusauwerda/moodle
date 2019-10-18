@@ -779,7 +779,7 @@ class behat_general extends behat_base {
         ?string $containerelement = null,
         ?string $containerselectortype = null
     ) {
-        $msg = "'{$preelement}' '{$preselectortype}' does not appear after '{$postelement}' '{$postselectortype}'";
+        $msg = "'{$preelement}' '{$preselectortype}' does not appear before '{$postelement}' '{$postselectortype}'";
         $this->check_element_order(
             $containerelement,
             $containerselectortype,
