@@ -387,7 +387,8 @@ class report_log_renderable implements renderable {
         if ($this->showusers) {
             if ($courseusers) {
                 foreach ($courseusers as $courseuser) {
-                     $users[$courseuser->id] = fullname($courseuser, has_capability('moodle/site:viewfullnames', $context));
+                     $username_last_first = explode(' ', fullname($courseuser, has_capability('moodle/site:viewfullnames', $context)));
+                     $users[$courseuser->id] = $username_last_first[1] . ', ' . $username_last_first[0];
                 }
             }
             $users[$CFG->siteguest] = get_string('guestuser');
