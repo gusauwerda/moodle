@@ -848,6 +848,10 @@ function(
                         var footerContainer = getFooterRequireContactContainer(footer);
                         footerContainer.find(SELECTORS.TITLE).text(title);
                         footerContainer.find(SELECTORS.TEXT).text(text);
+                        if (!data.user.canmessage && data.user.requirescontact) {
+                          showFooterUnableToMessage(footer);
+                          return strings;
+                        }
                         showFooterRequireContact(footer);
                         return strings;
                     });
