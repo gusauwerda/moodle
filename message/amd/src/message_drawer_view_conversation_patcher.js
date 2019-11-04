@@ -1036,16 +1036,15 @@ function(
                     return {type: 'content'};
                 } else if (otherUser.isblocked) {
                     return {type: 'unblock'};
+                  } else if (!otherUser.canmessage && (otherUser.requirescontact && !otherUser.iscontact)) {
+                      return {type: 'unable-to-message'};
                 } else if (newState.messages.length && requiresContactRequest(newState.loggedInUserId, otherUser)) {
                     return {
                         type: 'add-contact',
                         user: otherUser
                     };
-                } else if (!otherUser.canmessage && (otherUser.requirescontact && !otherUser.iscontact)) {
-                    return {type: 'unable-to-message'};
                 }
             }
-
             return null;
         };
 
